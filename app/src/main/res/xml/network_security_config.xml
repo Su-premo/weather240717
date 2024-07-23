@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!--Set application-wide security config using base-config tag.-->
+    <!-- android가 https가 아닌 http 프로토콜 접속시 제한되는 오류 발생 방지 -->
+    <base-config cleartextTrafficPermitted="true"/>
+</network-security-config>
