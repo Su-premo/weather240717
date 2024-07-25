@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -35,8 +37,13 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true      // local.properties의 api key 사용을 위함
     }
 }
+
+//fun getAppKey(propertyKey: String): String {
+//    return gradleLocalProperties(rootDir).getProperty(propertyKey)
+//}
 
 dependencies {
 
