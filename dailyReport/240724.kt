@@ -1,4 +1,4 @@
-240717
+240724
         1. api key를 local.properties에 추가
         2. Modelweather, WeatherAdapter, WeatherInterface .kt 파일들 생성
         3. content_main.xml 작성: 날씨 정보를 띄울 메인 화면

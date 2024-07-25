@@ -17,6 +17,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "WEATHER_API_KEY", getApiKey("WEATHER_API_KEY"))
+
     }
 
     buildTypes {
@@ -41,9 +43,7 @@ android {
     }
 }
 
-//fun getAppKey(propertyKey: String): String {
-//    return gradleLocalProperties(rootDir).getProperty(propertyKey)
-//}
+fun getApiKey(key: String): String = gradleLocalProperties(rootDir, providers).getProperty(key)
 
 dependencies {
 
@@ -60,8 +60,11 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     // Retrofit2
+    implementation("com.google.code.gson:gson:2.10.1")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter2-gson:2.9.0")      // converter (JSON 타입 결과 -> 객체로 mapping)
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")       // converter (JSON 타입 결과 -> 객체로 mapping)
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
 
     implementation("com.google.android.gms:play-services-location:19.0.1")       // 위치
 }

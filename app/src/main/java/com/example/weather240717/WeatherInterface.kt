@@ -1,8 +1,9 @@
 package com.example.weather240717
 
+import com.google.gson.GsonBuilder
 import retrofit2.Call
 import retrofit2.Retrofit
-// import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -32,9 +33,10 @@ data class ITEMS(val item : List<ITEM>)
 data class ITEM(val category : String, val fcstDate : String, val fcstTime : String, val fcstValue : String)
 
 // retrofit을 사용하기 위한 빌더 생성
+var gson= GsonBuilder().setLenient().create()
 private val retrofit = Retrofit.Builder()
     .baseUrl("http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/")
-//    .addConverterFactory(GsonConverterFactory.create())
+    .addConverterFactory(GsonConverterFactory.create(gson))
     .build()
 
 object ApiObject {
