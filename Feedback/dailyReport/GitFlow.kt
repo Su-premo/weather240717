@@ -227,3 +227,8 @@ feature, develop, release, hotfix, master(main)로 나누어 목적별로 활용
          1 file changed, 1 insertion(+)
     # 최종적으로 main 브랜치와 develop 브랜치만 남으며, 나머지 브랜치들은 삭제해도 됨.
     # 사이클 완료
+
+
+        ==> 현재 사용하고 있는 git Tool은 뭐지?
+        ==> Git Flow 설정하기
+            --> git tool 에 git flow 초기화 하기 메뉴가 있음
