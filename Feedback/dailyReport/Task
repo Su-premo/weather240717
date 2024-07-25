@@ -20,27 +20,14 @@
 240723
 * 프로젝트 생성
 * 환경 설정
-* 화면 구성 (xml)
-  -> 화면별로 나누기
-* api 연동
-    - 기상청단기예보 api 신청 후 key 발급(git ignore에 추가)
-  -> API Key 신청을 별로도 나누는게 좋음
-* 기능 코드 작성
-
-==> * Feature branch 를 만들기 위한 사전 작업이라고 생각하면 됨
-    * 해당 branch 소스만 보고 이 기능을 구현했다고 알 수 있게 나누는게 좋음
-    * 세분화 할수록 좋음
-
-
-240723
-* 프로젝트 생성
-* 환경 설정
     - Androidmanifest.xml 설정
     - build.gradle 설정
 * 화면 구성 (xml)
+  -> 화면별로 나누기
     - 날씨 정보가 뜰 화면(content_main.xml)
     - 세분화 정보를 담을 아이템(list_item_weather.xml)
 * api 연동
+  -> API Key 신청을 별로도 나누는게 좋음
     - 기상청단기예보 api 신청
     - key 발급(local.properties-git ignore에 추가)
 * 기능 코드 작성
@@ -48,3 +35,7 @@
     - 날씨 정보를 담을 데이터 클래스 작성(ModelWeather.kt)
     - 날씨 정보를 받고 정보 및 옷 추천 반환해 줄 클래스 작성(WeatherAdapter.kt)
     - 서버 통신(Retrofit2) 클래스(WeatherInterface.kt)
+
+==> * Feature branch 를 만들기 위한 사전 작업이라고 생각하면 됨
+    * 해당 branch 소스만 보고 이 기능을 구현했다고 알 수 있게 나누는게 좋음
+    * 세분화 할수록 좋음
