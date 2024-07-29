@@ -1,4 +1,7 @@
+
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+import java.io.FileInputStream
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
@@ -9,6 +12,10 @@ android {
     namespace = "com.example.weather240717"
     compileSdk = 34
 
+    // local.properties의 WEATHER_API_KEY 사용
+    val localProperties = Properties()
+    localProperties.load(FileInputStream(rootProject.file("local.properties")))
+
     defaultConfig {
         applicationId = "com.example.weather240717"
         minSdk = 24
@@ -17,7 +24,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        //weather_api_key
         buildConfigField("String", "WEATHER_API_KEY", getApiKey("WEATHER_API_KEY"))
+        //buildConfigField("String", "WEATHER_API_KEY", localProperties.getProperty("WEATHER_API_KEY"))
 
     }
 
@@ -43,6 +53,7 @@ android {
     }
 }
 
+// weather_api_key
 fun getApiKey(key: String): String = gradleLocalProperties(rootDir, providers).getProperty(key)
 
 dependencies {

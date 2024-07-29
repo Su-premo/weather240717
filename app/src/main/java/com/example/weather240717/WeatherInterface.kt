@@ -9,8 +9,7 @@ import retrofit2.http.Query
 
 // 결과 xml 파일에 접근해서 정보 가져오기
 interface WeatherInterface {
-    // getUltraSrtFcst : 초단기 예보 조회 + 인증키
-    @GET("getUltraSrtFcst?serviceKey=서비스키_여기에_")
+    @GET("getUltraSrtFcst?serviceKey=${Companion.serviceKey}")
 
     fun GetWeather(@Query("numOfRows") num_of_rows : Int,   // 한 페이지 경과 수
                    @Query("pageNo") page_no : Int,          // 페이지 번호
@@ -20,6 +19,11 @@ interface WeatherInterface {
                    @Query("nx") nx : String,                // 예보지점 X 좌표
                    @Query("ny") ny : String)                // 예보지점 Y 좌표
             : Call<WEATHER>
+
+    companion object {
+        // getUltraSrtFcst : 초단기 예보 조회 + 인증키
+        const val serviceKey: String = BuildConfig.WEATHER_API_KEY
+    }
 }
 
 
